@@ -41,7 +41,7 @@ if [ "$(id -u)" -eq 0 ]; then # as root user
 	apt-get update
 	# install dependencies
 	apt-get install --quiet \
-		wget build-essential patch git python2
+		wget build-essential patch git python2 libgtk-3-dev libwebkit2gtk-4.0-dev
 	# install 'pngquant' build dependencies (required by node module)
 	apt-get build-dep --quiet \
 		pngquant
