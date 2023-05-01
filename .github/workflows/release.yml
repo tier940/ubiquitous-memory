@@ -6,9 +6,9 @@ on:
     branches: [ master ]
 
 env:
-  UBUNTU_RELEASE: 22.04
+  DEBIAN_RELEASE: buster
   DOCKER_PWD: /root
-  DOCKER_IMAGE: ubuntu:${UBUNTU_RELEASE}
+  DOCKER_IMAGE: debian:${DEBIAN_RELEASE}
   GO_VERSION: 1.19.5
 
 jobs:
