@@ -8,7 +8,7 @@ on:
 env:
   UBUNTU_RELEASE: 22.04
   DOCKER_PWD: /root
-  DOCKER_IMAGE: ubuntu-${UBUNTU_RELEASE}
+  DOCKER_IMAGE: ubuntu:${UBUNTU_RELEASE}
   GO_VERSION: 1.19.5
 
 jobs:
