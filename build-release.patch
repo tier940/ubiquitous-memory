@@ -1,5 +1,6 @@
---- a/server/build/release.mk
-+++ b/server/build/release.mk
+diff --git a/build/release.mk b/build/release.mk
+--- a/build/release.mk
++++ b/build/release.mk
 @@ -103,7 +103,7 @@
  	@# Resource directories
  	mkdir -p $(DIST_PATH)/config
