@@ -1,22 +1,11 @@
-diff --git a/build/release.mk b/build/release.mk
-index faa027239..df40f0c68 100644
---- a/build/release.mk
-+++ b/build/release.mk
-@@ -715,7 +715,7 @@
- config-reset: ## Resets the config/config.json file to the default production values.
- 	@echo Resetting configuration to production default
- 	rm -f config/config.json
--	OUTPUT_CONFIG=$(PWD)/config/config.json $(GO) $(GOFLAGS) run -tags production ./scripts/config_generator
-+	OUTPUT_CONFIG=$(PWD)/config/config.json $(GO) $(GOFLAGS) GOOS= GOARCH= go run -tags production ./scripts/config_generator
- 
- diff-config: ## Compares default configuration between two mattermost versions
- 	@./scripts/diff-config.sh
-@@ -815,7 +815,7 @@
- endif
- 
- mmctl-build: ## Compiles and generates the mmctl binary
--	go build -trimpath -ldflags '$(LDFLAGS)' -o bin/mmctl ./cmd/mmctl
-+	GOOS= GOARCH= go build -trimpath -ldflags '$(LDFLAGS)' -o bin/mmctl ./cmd/mmctl
- 
- mmctl-docs: ## Generate the mmctl docs
- 	rm -rf ./cmd/mmctl/docs
+--- a/server/build/release.mk
++++ b/server/build/release.mk
+@@ -103,7 +103,7 @@
+ 	@# Resource directories
+ 	mkdir -p $(DIST_PATH)/config
+ 	cp -L config/README.md $(DIST_PATH)/config
+-	OUTPUT_CONFIG=$(PWD)/$(DIST_PATH)/config/config.json go run ./scripts/config_generator
++	OUTPUT_CONFIG=$(PWD)/$(DIST_PATH)/config/config.json GOOS= GOARCH= go run ./scripts/config_generator
+ 	cp -RL fonts $(DIST_PATH)
+ 	cp -RL templates $(DIST_PATH)
+ 	rm -rf $(DIST_PATH)/templates/*.mjml $(DIST_PATH)/templates/partials/
